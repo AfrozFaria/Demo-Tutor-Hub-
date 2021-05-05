@@ -9,7 +9,7 @@ from .models import AdStudent, AdTutor
 from .forms import AdStudentForm, AdTutorForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
-from home.models import Student,Tutor
+# from home.models import Student,Tutor
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 # feature - 1
