@@ -92,15 +92,6 @@ def signout(request):
     return redirect('landing')
 
 
-@login_required
-def home(request):
-    '''
-    This will redirect the url to the homepage
-    :type request: HttpResponse
-    :param request: Takes the request to show home.html
-    
-    '''
-    return render(request, 'home/home.html')
 
 @login_required
 def profile(request):
