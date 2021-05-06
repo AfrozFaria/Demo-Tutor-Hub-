@@ -15,6 +15,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+STATIC_DIR = os.path.join(BASE_DIR, "static")
 
 
 # Quick-start development settings - unsuitable for production
@@ -49,9 +50,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
 
 
-  
-]
 
+]
 
 
 MIDDLEWARE = [
@@ -69,7 +69,7 @@ ROOT_URLCONF = 'tutor_hub.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR, 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,12 +133,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    STATIC_DIR,
+]
 LOGIN_URL = '/signin/'
 
-CRISPY_TEMPLATE_PACK ='bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-MEDIA_ROOT  = os.path.join(BASE_DIR, 'static/images')
-MEDIA_URL ='/images/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+MEDIA_URL = '/images/'
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -150,15 +153,14 @@ EMAIL_HOST_PASSWORD = '12345678@GGH'
 DEFAULT_FROM_EMAIL = 'cse327group3@gmail.com'
 
 AUTHENTICATION_BACKENDS = [
-   
+
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
 
     # `allauth` specific authentication methods, such as login by e-mail
     'allauth.account.auth_backends.AuthenticationBackend',
-  
+
 ]
 
 SITE_ID = 1
 LOGIN_REDIRECT_URL = "home/"
-
