@@ -16,6 +16,8 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -139,6 +141,7 @@ STATICFILES_DIRS = [
     STATIC_DIR,
 ]
 
+
 LOGIN_URL = '/signin/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -166,15 +169,15 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 SITE_ID = 1
+
 LOGIN_REDIRECT_URL = "/"
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    STATIC_DIR,
-]
 
 # Media Root
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
+
+LOGIN_REDIRECT_URL = "home/"
+
